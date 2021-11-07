@@ -53,8 +53,8 @@ public class StockPriceController {
 	}
 
 	@PostMapping(path = "/compareCompany")
-	@CrossOrigin(exposedHeaders = "Access-Control-Allow-Origin")
-	//@CrossOrigin(origins = "http://localhost:4200")
+	//@CrossOrigin(exposedHeaders = "Access-Control-Allow-Origin")
+	@CrossOrigin(origins = "https://phase3-angular-ayan.herokuapp.com")
 	public ResponseEntity<List<StockPrice>> companyComparison(@RequestBody CompanyCompareRequest compareRequest) {
 		System.out.println(compareRequest.toString());
 		List<StockPrice> stockPrice = stkpriceservice.getStockPricesForCompanyComparison(compareRequest);
