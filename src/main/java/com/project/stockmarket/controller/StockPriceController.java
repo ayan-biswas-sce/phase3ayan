@@ -34,7 +34,7 @@ public class StockPriceController {
 	StockPriceService stkpriceservice;
 	@Autowired
 	Companystockexchangemaprepository cmpstkmaprepo;
-
+	@CrossOrigin(exposedHeaders = "Access-Control-Allow-Origin")
 	@RequestMapping(value = "/addstockprices", method = RequestMethod.POST)
 	public ResponseEntity<List<StockPrice>> stockpriceapi(@RequestBody List<StockPrice> stockprices)
 			throws ClassNotFoundException, IOException {
@@ -53,8 +53,8 @@ public class StockPriceController {
 	}
 
 	@PostMapping(path = "/compareCompany")
-	//@CrossOrigin(exposedHeaders = "Access-Control-Allow-Origin")
-	@CrossOrigin(origins = "https://phase3-angular-ayan.herokuapp.com")
+	@CrossOrigin(exposedHeaders = "Access-Control-Allow-Origin")
+	//@CrossOrigin(origins = "https://phase3-angular-ayan.herokuapp.com")
 	public ResponseEntity<List<StockPrice>> companyComparison(@RequestBody CompanyCompareRequest compareRequest) {
 		System.out.println(compareRequest.toString());
 		List<StockPrice> stockPrice = stkpriceservice.getStockPricesForCompanyComparison(compareRequest);
@@ -64,6 +64,7 @@ public class StockPriceController {
 		return ResponseEntity.ok(stockPrice);
 	}
 
+	@CrossOrigin(exposedHeaders = "Access-Control-Allow-Origin")
 	@RequestMapping(value = "/getstockprices", method = RequestMethod.GET, headers = "Accept=application/json")
 	public List<StockPrice> getstockprice() throws ClassNotFoundException, IOException {
 
