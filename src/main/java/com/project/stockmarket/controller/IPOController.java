@@ -18,7 +18,8 @@ import com.project.stockmarket.repository.IPOrepository;
 import com.project.stockmarket.service.IPOService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(exposedHeaders = "Access-Control-Allow-Origin")
 @RequestMapping("/ipos")
 public class IPOController {
 	@Autowired

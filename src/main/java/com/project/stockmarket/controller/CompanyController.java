@@ -18,7 +18,8 @@ import com.project.stockmarket.entity.IPODetail;
 import com.project.stockmarket.service.CompanyService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(exposedHeaders = "Access-Control-Allow-Origin")
 @RequestMapping("/companies")
 public class CompanyController {
 	@Autowired
